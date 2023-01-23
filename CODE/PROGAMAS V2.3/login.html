@@ -1,0 +1,64 @@
+<!-- Define que el documento esta bajo el estandar de HTML 5 -->
+<!doctype html>
+
+<!-- Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser descendientes de este elemento. -->
+<html lang="es">
+    
+    <head>
+        
+        <meta charset="utf-8">        
+        <title> Formulario de Acceso </title>            
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Link hacia el archivo de estilos css -->
+        <link rel="stylesheet" href="css/login.css">                
+        <script type="text/javascript">
+			function autenticar(){
+				var usuario = document.getElementById("txtUsuario").value;
+				var clave = document.getElementById("txtClave").value;
+				if (usuario.trim() === ""){
+					alert("Ingrese usuario");
+				}else{
+					if (clave.trim() === ""){
+						alert("Ingrese clave");
+					}else{
+						if (usuario == "" && clave == ""){
+							alert("Bienvenido al Sistema");
+							window.location.replace("listaPedidos.html");
+						}else{
+							alert("Usuario no existe");
+						}
+					
+					}
+				}
+			}
+        </script>
+    </head>
+    
+    <body>
+        
+        <div id="contenedor">
+            <div id="central">
+                <div id="login">
+                    <div class="titulo">
+                        Bienvenido
+                    </div>
+                    <!--form id="loginform"-->
+                        <input type="text" id="txtUsuario" name="usuario" placeholder="Usuario" required>                        
+                        <input type="password" id="txtClave" placeholder="Contraseña" name="password" required>                        
+                        <button title="Ingresar" name="Ingresar" onclick="autenticar()">Aceptar</button>
+                    <!--/form-->
+                    <div class="pie-form">                        
+						<a href="index.html">Volver</a>
+                    </div>
+                </div>
+                <div class="inferior">
+                    
+                </div>
+                <?php 
+                include("registrar.php");
+                ?>
+            </div>
+        </div>
+            
+    </body>
+</html>
